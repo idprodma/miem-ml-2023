@@ -93,7 +93,7 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument("-l", "--epochs", type=int, choices=range(2), default=0,
                         help="log epochs")
-    parser.add_argument("-opt", "--twooptswap", type=int, choices=range(2) default=1,
+    parser.add_argument("-opt", "--twooptswap", type=int, choices=range(2), default=1,
                         help="use 2-opt swap instead of simple swap")
 
     args = parser.parse_args()

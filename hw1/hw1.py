@@ -27,19 +27,20 @@ def is_transition(prob):
     return 1 if np.random.rand(1) <= prob else 0
 
 def generate_state_candidate(seq):
+    cand_seq = list(seq)
     n = np.size(seq, 0)
     i = np.random.randint(n)
     j = np.random.randint(n)
 
     # topic of this HW
     if use_2_opt_swap:
-        seq[min(i, j):max(i,j)] = reversed(seq[min(i, j):max(i,j)])
+        cand_seq[min(i, j):max(i,j)] = reversed(cand_seq[min(i, j):max(i,j)])
     else: #simple swap
-      t = seq[i]
-      seq[i] = seq[j]
-      seq[j] = t
+      t = cand_seq[i]
+      cand_seq[i] = cand_seq[j]
+      cand_seq[j] = t
 
-    return seq
+    return cand_seq
 
 def optimise_route(cities, init_temp, end_temp):
     n_cities = np.size(cities, 0)
